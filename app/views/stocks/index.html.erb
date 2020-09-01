@@ -1,0 +1,13 @@
+    <h3>Available Stocks:</h3>
+
+    <% @client.each do |stock| %>
+    <div>
+      <li><%= stock[:name] %> | <%= stock[:ticker] %></li>
+      vs.
+      <li><%= stock[:open] %> | <%= stock[:value] %></li>
+      <br>
+      <br>
+    </div>
+
+
+    <% end %>
