@@ -29,15 +29,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_070257) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "watch_lists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "stock_id"
