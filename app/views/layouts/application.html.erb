@@ -10,20 +10,22 @@
   </head>
 
   <body>
+
     <nav>
       <ul>
-        
         <li><%= link_to "home", root_path %></li>
           <% if user_signed_in? %>
-            <li><%= link_to "portfolio", portfolio_path %></li>
-            <li><%= link_to "watch lists", watch_list_path %></li>
+            <li><%= link_to "portfolio", portfolios_path %></li>
+            <li><%= link_to "watch lists", watch_lists_path %></li>
             <li><%= link_to "logout", destroy_user_session_path, method: "delete" %></li>
-            
           <% else %>
-            <li><%= link_to "login", new_user_session_path %>
-            <li><%= link_to "signup", new_user_registration_path %>
+            <li><%= link_to "login", new_user_session_path %></li>
+            <li><%= link_to "signup", new_user_registration_path %></li>
           <% end %>
+      </ul>
+    </nav>
 
     <%= yield %>
+    
   </body>
 </html>
