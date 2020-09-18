@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_one :portfolios
+  has_many :stocks, through: :portfolios
+  has_many :watchlists
+  has_many :stocks, through: :watchlists
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

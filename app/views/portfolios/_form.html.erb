@@ -1,0 +1,18 @@
+<%= form_for(portfolio) do |f| %>
+  <div>
+    <%= f.label :user_id %> <br>
+    <%= f.number_field :user_id, value: portfolio.user_id %>
+    <%# add devise helper methods for user to populate user_id field with the current user in the session %>
+  </div><br>
+  <div>
+    <%= f.label :investing %> <br>
+    <%= f.number_field :investing %>
+  </div><br>
+    <div>
+    <%# stock dropdown menu to select stocks %>
+    <%= f.label :stock_id %> <br>
+    <%= f.number_field :stock_id %>
+  </div><br>
+
+  <%= f.submit button_name %>
+<% end %>

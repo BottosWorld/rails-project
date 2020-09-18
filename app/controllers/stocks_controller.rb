@@ -13,8 +13,11 @@ class StocksController < ApplicationController
 
 	def create
 	  @stock = Stock.new(stock_params(:name, :ticker, :open, :value))
-	  @stock.save
-	  redirect_to stock_path(@stock)
+		if @stock.save 
+			redirect_to stocks_path(@stock)
+		else
+			render :new
+		end
 	end
 
 	def update
@@ -31,4 +34,6 @@ private
 	def stock_params(*args)
 		params.require(:stock).permit(*args)
 	end
+
+	
 end

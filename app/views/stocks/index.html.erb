@@ -1,0 +1,11 @@
+<%= form_tag(stocks_path, method: 'get') do %>
+  <%= text_field_tag :term, nil,  id: "Search", placeholder: "enter search term" %>
+
+  <%= submit_tag "Search"%>
+<% end %>
+
+<% @stocks.each do |stock| %>
+    <div>
+        <h1><%= stock.name %> - <%= stock.ticker %>: $<%= stock.value%>
+    </div>
+<% end %>
