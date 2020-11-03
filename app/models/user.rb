@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :portfolios
+  has_one :portfolio
   has_many :stocks, through: :portfolios
   has_many :watchlists
   has_many :stocks, through: :watchlists

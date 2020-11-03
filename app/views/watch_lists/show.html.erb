@@ -1,1 +1,3 @@
-<%= @watch_list %>
+<% @watch_lists.stocks.each do |s| %>
+<li><%= s.name %> - Stock Symbol: <%= s.ticker %></li>
+<% end %>

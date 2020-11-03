@@ -1,1 +1,7 @@
 <h1> Bulls Eye! </h1>
+
+<% if user_signed_in? %>
+    <p> Welcome! </p>
+<% else %>
+    <p> Please sign in! </p>
+<% end %>

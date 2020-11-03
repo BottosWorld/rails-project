@@ -1,9 +1,11 @@
 class Stock < ApplicationRecord
-    has_many :portfolios
-    has_many :users, through: :portfolios
+    belongs_to :portfolio
+    belongs_to :watchlist
+    # has_many :portfolios
+    # has_many :users, through: :portfolios
     # aliasing
-    has_many :watchlists
-    has_many :users, through: :watchlists
+    # has_many :watchlists
+    # has_many :users, through: :watchlists
 
     scope :elite_stocks, -> { where("stocks.value BETWEEN 10.00 AND 99.9999") }
     scope :legendary_stocks, -> { where("stocks.value BETWEEN 100.00 AND 9999.9999") }

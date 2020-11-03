@@ -1,3 +1,9 @@
+<h1>Create Your New Watch List:</h1>
+
+<%= render partial: "watch_lists/form", locals: {watch_list: @watch_list, button_name: "Create Watch List"} %>
+
+
+<!--
 <%= form_for(@watch_list) do |f| %>
   <label>List Title:</label><br>
   <%= f.text_field :list_name %><br>
@@ -7,3 +13,4 @@
 
   <%= f.submit %>
 <% end %>
+-->

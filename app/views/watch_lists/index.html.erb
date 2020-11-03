@@ -1,1 +1,5 @@
-<%= @watch_lists %>
+<% @watch_lists.each do |list| %>
+<%= link_to list.name, list %>
+<% end %>
+
+<p> <%= link_to "Create a new watch list", new_watch_list_path %></p>

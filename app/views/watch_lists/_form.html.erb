@@ -1,0 +1,19 @@
+<% if @watch_list.errors.any? %>
+        <h5 class="error"><%= @watch_list.errors.full_messages.to_sentence %></h5>
+<% end %>
+
+
+<%= form_with model: @watch_list, local: true do |f| %>
+    <%= f.label :list_name, "Name your watch list!" %>
+    <%= f.text_field :list_name, class: @watch_list.errors.any? ? "error-field" : nil %>
+    <h4>What stocks would you like to add to your list?</h4>
+    <%= f.fields_for :stocks do | s | %>
+        <%= s.label :name, "Company Name" %>
+        <%= s.text_field :name %><br />
+        <%= s.label :ticker %>
+        <%= s.text_field :ticker %><br />
+        <%= s.label :value %>
+        <%= s.number_field :value %><br />
+    <% end %>
+    <%= f.submit %>
+<% end %> 
