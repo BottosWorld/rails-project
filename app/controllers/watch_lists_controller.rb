@@ -17,12 +17,12 @@ class WatchListsController < ApplicationController
 	#   @watch_list = WatchList.new(watch_list_params(:list_name, :user_id, :stock_id))
 	  @watch_list = WatchList.new(watch_list_params)
 	  @watch_list.user = current_user
-	  binding.pry
+	#   binding.pry
 	  if @watch_list.save
 		redirect_to watch_list_path(@watch_list)
 	  else
 		render :new
-		binding.pry
+		# binding.pry
 		5.times {@watch_list.stocks.build}
 	  end
 	end
@@ -44,6 +44,6 @@ private
 	end
 
 	def watch_list_params
-		params.require(:watch_list).permit(:list_name, :user_id, :stock_id, stocks_attributes:[:name, :ticker, :value])
+		params.require(:watch_list).permit(:list_name, :user_id, :stock_id, stocks_attributes:[:name, :ticker, :value].push(:_destroy)) 
 	end
 end

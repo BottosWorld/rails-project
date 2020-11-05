@@ -13,6 +13,8 @@ class Stock < ApplicationRecord
     scope :penny_stocks, -> { where("stocks.value BETWEEN 0.0001 AND 0.9999") }
     scope :mythic_stocks, -> { where("stocks.value BETWEEN 10000.00 AND 9999999.9999") }
 
+    #filter through stocks with above scope methods
+
     validates_presence_of :ticker, :name, :value
     # validates_uniqueness_of :ticker, :name
 end

@@ -8,13 +8,19 @@
     <%# <%= f.hidden_field :user_id %>
     <%= f.text_field :list_name, class: @watch_list.errors.any? ? "error-field" : nil %>
     <h4>What stocks would you like to add to your list?</h4>
-    <%= f.fields_for :stocks do | s | %>
+    <body class='stocks'>
+    <%= f.fields_for :stocks do | builder | %>
+    <%= render 'stock_fields', f: builder %>
+    <!--
         <%= s.label :name, "Company Name" %>
         <%= s.text_field :name %><br />
         <%= s.label :ticker %>
         <%= s.text_field :ticker %><br />
         <%= s.label :value %>
         <%= s.number_field :value %><br />
+    -->
     <% end %>
+    </body>
     <%= f.submit %>
+    <%= link_to_add_association 'Add Another Stock', f, :stocks, class: 'btn btn-primary', data: {association_insertion_node: '.stocks', association_insertion_method: :append} %>
 <% end %> 
