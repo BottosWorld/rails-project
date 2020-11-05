@@ -1,6 +1,6 @@
 class Stock < ApplicationRecord
-    belongs_to :portfolio
-    belongs_to :watchlist
+    belongs_to :portfolio, optional: true
+    belongs_to :watchlist, optional: true
     # has_many :portfolios
     # has_many :users, through: :portfolios
     # aliasing
@@ -14,5 +14,5 @@ class Stock < ApplicationRecord
     scope :mythic_stocks, -> { where("stocks.value BETWEEN 10000.00 AND 9999999.9999") }
 
     validates_presence_of :ticker, :name, :value
-    validates_uniqueness_of :ticker, :name
+    # validates_uniqueness_of :ticker, :name
 end

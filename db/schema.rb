@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_050509) do
+ActiveRecord::Schema.define(version: 2020_11_03_192408) do
 
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2020_09_17_050509) do
     t.decimal "open"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "watch_list_id"
+    t.index ["watch_list_id"], name: "index_stocks_on_watch_list_id"
+  end
+
+  create_table "stocks_watch_lists", id: false, force: :cascade do |t|
+    t.integer "watch_list_id", null: false
+    t.integer "stock_id", null: false
+    t.index ["stock_id", "watch_list_id"], name: "index_stocks_watch_lists_on_stock_id_and_watch_list_id"
+    t.index ["watch_list_id", "stock_id"], name: "index_stocks_watch_lists_on_watch_list_id_and_stock_id"
   end
 
   create_table "users", force: :cascade do |t|

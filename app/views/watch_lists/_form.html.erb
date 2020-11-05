@@ -5,6 +5,7 @@
 
 <%= form_with model: @watch_list, local: true do |f| %>
     <%= f.label :list_name, "Name your watch list!" %>
+    <%# <%= f.hidden_field :user_id %>
     <%= f.text_field :list_name, class: @watch_list.errors.any? ? "error-field" : nil %>
     <h4>What stocks would you like to add to your list?</h4>
     <%= f.fields_for :stocks do | s | %>
