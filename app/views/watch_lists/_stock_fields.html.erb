@@ -2,7 +2,10 @@
     <td>
         <%= link_to_remove_association "remove stock", f %>
     </td>
-    <tr><%= f.text_field :name, label: "Company Name"%></tr>
-    <tr><%= f.text_field :ticker, label: "Symbol"%></tr>
-    <tr><%= f.number_field :value, step: 0.01, label: "$"%></tr>
+    <tr><%= f.label :name, "Company Name" %>
+        <%= f.text_field :name %></tr>
+    <tr><%= f.label :ticker, "Symbol" %>
+        <%= f.text_field :ticker, label: "Symbol"%></tr>
+    <tr><%= f.label :value, "$" %>
+        <%= f.number_field :value, step: 0.01, label: "$"%></tr>
 </tr>
