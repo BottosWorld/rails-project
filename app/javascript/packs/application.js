@@ -4,6 +4,8 @@
 // that code so it'll be compiled.
 
 import "@kollegorna/cocoon-vanilla-js";
+require("jquery")
+require("@nathanvda/cocoon")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()

@@ -20,9 +20,11 @@
             
         <body class='stocks'> 
         -->
+        <div class="field">
             <%= f.fields_for :stocks do | s | %>
                 <%= render 'stock_fields', f: s %>
             <% end %>
+        </div>
 
     <div class="links"><%= link_to_add_association 'Add Stock', f, :stocks, class: 'btn btn-primary' %></div><br>
     <!--
