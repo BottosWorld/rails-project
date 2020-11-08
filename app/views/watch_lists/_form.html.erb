@@ -1,12 +1,14 @@
-<% if @watch_list.errors.any? %>
-        <h5 class="error"><%= @watch_list.errors.full_messages.to_sentence %></h5>
-<% end %>
-
-
 <%= form_with model: @watch_list, local: true do |f| %>
+    
+    <% if @watch_list.errors.any? %>
+        <h5 class="error"><%= @watch_list.errors.full_messages.to_sentence %></h5>
+    <% end %>
+    
     <%= f.label :list_name, "Name your watch list!" %>
     <%= f.text_field :list_name, class: @watch_list.errors.any? ? "error-field" : nil %>
-        <h4>What stocks would you like to add to your list?</h4>
+        
+        <h4>Add Stocks To Watch</h4>
+            <!--
             <%= fields_for(stocks_url) do |s|%>
                 <%= s.label :name, "Company Name:" %>
                 <%= s.text_field :name %><br>
@@ -15,12 +17,18 @@
                 <%= s.label :value, "$" %>
                 <%= s.number_field :value, step: 0.01 %><br>
             <% end%>
-        <body class='stocks'>
-            <%= f.fields_for :stocks do | builder | %>
-            <%= render 'stock_fields', f: builder %>
-        <% end %>
-        </body>
+            
+        <body class='stocks'> 
+        -->
+            <%= f.fields_for :stocks do | s | %>
+                <%= render 'stock_fields', f: s %>
+            <% end %>
 
-    <%= link_to_add_association 'Add Another Stock', f, :stocks, class: 'btn btn-primary', data: {association_insertion_node: '.stocks', association_insertion_method: :append} %><br>
-    <%= f.submit %><br>
+    <div class="links"><%= link_to_add_association 'Add Stock', f, :stocks, class: 'btn btn-primary' %></div><br>
+    <!--
+    Using this does not properly save the stock and generates fields outside of the form beneath the submit button
+    class: 'btn btn-primary', data: {association_insertion_node: '.stocks', association_insertion_method: :append}
+    -->
+
+    <div class="actions"><%= f.submit %></div><br>
 <% end %> 

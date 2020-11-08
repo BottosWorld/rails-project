@@ -1,3 +1,5 @@
-<% @watch_lists.stocks.each do |s| %>
-<li><%= s.name %> - Stock Symbol: <%= s.ticker %></li>
+<% @watch_list.stocks.each do |s| %>
+    <li><%= s.name %> - Stock Symbol: <%= s.ticker %> $<%= s.value%></li>
+    <li><%= link_to "Edit", edit_watch_list_url(@watch_list)%></li>
+    <li><%= link_to "Delete", s, method: :delete, data: { confirm: "Are you sure?" } %></li>
 <% end %>

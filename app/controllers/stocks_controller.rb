@@ -4,7 +4,7 @@ class StocksController < ApplicationController
 	end
 
 	def show
-		@stock = Stock.find(params[:id])
+		@stock = Stock.find_by_id(params[:id])
 	end
 
 	def new
@@ -21,13 +21,21 @@ class StocksController < ApplicationController
 	end
 
 	def update
-	  @stock = Stock.find(params[:id])
-	  @stock.update(stock_params(:value))
+	  @stock = Stock.find_by_id(params[:id])
+	  @stock.update(stock_params)
 	  redirect_to stock_path(@stock)
 	end
 
 	def edit
-	  @stock = Stock.find(params[:id])
+	  @stock = Stock.find_by_id(params[:id])
+	end
+
+	def destroy
+		@stock = Stock.find_by_id(params[:id])
+		if @stock.present?
+			@stock.destroy
+		end
+		redirect_to stocks_path(@stock)
 	end
 
 private
