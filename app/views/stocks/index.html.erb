@@ -1,5 +1,5 @@
 <%= form_tag(stocks_path, method: 'get') do %>
-  <%= text_field_tag :term, nil,  id: "Search", placeholder: "enter search term" %>
+  <%= text_field_tag :name, nil,  id: "Search", placeholder: "enter company name" %>
 
   <%= submit_tag "Search"%>
 <% end %>

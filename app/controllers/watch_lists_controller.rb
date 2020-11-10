@@ -2,6 +2,7 @@ class WatchListsController < ApplicationController
 	before_action :set_watch_list
 	
 	def index
+		# binding.pry
 		@watch_lists = WatchList.all
 	end
 
@@ -31,7 +32,7 @@ class WatchListsController < ApplicationController
 	def update
 	  @watch_list = WatchList.find_by_id(params[:id])
 	  @watch_list.update(watch_list_params)
-	  redirect_to watch_list_stocks_path(@watch_list)
+	  redirect_to watch_list_stock_path(@watch_list)
 	end
 
 	def edit

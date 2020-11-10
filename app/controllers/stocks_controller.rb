@@ -31,11 +31,12 @@ class StocksController < ApplicationController
 	end
 
 	def destroy
+		binding.pry
 		@stock = Stock.find_by_id(params[:id])
 		if @stock.present?
 			@stock.destroy
 		end
-		redirect_to stocks_path(@stock)
+		redirect_to watch_list_stock_path(@stock)
 	end
 
 private
