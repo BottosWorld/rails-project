@@ -1,10 +1,21 @@
 class StocksController < ApplicationController
 	def index
-		@stocks = Stock.all
+		if params[:watch_list_id]
+			@watch_list = WatchList.find_by_id(params[:watch_list_id])
+			@stocks = @watch_list.stocks
+		else
+			@stocks = Stock.all
+		end
 	end
 
 	def show
-		@stock = Stock.find_by_id(params[:id])
+		# @stock = Stock.find_by_id(params[:id])
+		if params[:watch_list_id]
+			@watch_list = WatchList.find_by_id(params[:watch_list_id])
+			@stocks = @watch_list.stocks
+		else
+			@stocks = Stock.all
+		end
 	end
 
 	def new
