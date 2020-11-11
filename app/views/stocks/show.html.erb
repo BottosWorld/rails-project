@@ -1,5 +1,14 @@
-Testing Show Page
+Testing Nested Route Show Page
+<% if @watch_list %>
+    <h1><%= link_to @watch_list.list_name, watch_list_path(@watch_list) %></h1>
+    <h5> Created <%= @watch_list.created_at.strftime("%b %e, %l:%M %p") %></h5>
+<% else %>
+    <h1>Here are all the stocks:</h1>
+<% end %>
 
 <% @stocks.each do |s| %>
     <ol><%= s.name %> - <%= s.ticker %> | $<%= s.value %></ol>
+    <!-- 
+    <ol><%= link_to s.name, watch_list_stock_path(@watch_list, s) %> - <%= s.ticker %> | $<%= s.value %></ol>
+    -->
 <% end %>
