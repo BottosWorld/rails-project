@@ -7,8 +7,6 @@ Testing Nested Route Show Page
 <% end %>
 
 <% @stocks.each do |s| %>
-    <ol><%= s.name %> - <%= s.ticker %> | $<%= s.value %></ol>
-    <!-- 
-    <ol><%= link_to s.name, watch_list_stock_path(@watch_list, s) %> - <%= s.ticker %> | $<%= s.value %></ol>
-    -->
+    <ol><%= s.id %>. <%= s.name %> - <%= s.ticker %> | $<%= s.value %></ol>
+
 <% end %>

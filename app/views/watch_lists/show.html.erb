@@ -1,8 +1,9 @@
 <% @watch_list.stocks.each do |s| %>
-    <li><%= s.name %> - <%= s.ticker %>: $<%= s.value%> | <%= link_to "Edit", edit_watch_list_url(@watch_list)%></li>
+    <li><%= s.id %> <%= s.name %> - <%= s.ticker %>: $<%= s.value%> | <%= link_to "Edit Stock", edit_watch_list_stock_path(@watch_list, s)%></li>
     <!-- 
     <li><%= button_to "Delete", watch_list_stock_path(s), method: :delete, data: { confirm: "Are you sure?" } %></li>
     -->
 <% end %>
 
+<%= link_to "Edit Watch List", edit_watch_list_path(@watch_list)%>
 <%= button_to "Delete Watch List", @watch_list, method: :delete, data: { confirm: "Are you sure?" } %>

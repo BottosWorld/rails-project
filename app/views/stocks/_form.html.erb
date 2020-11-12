@@ -1,16 +1,19 @@
-<%= form_for(stock) do |f| %>
+<%= form_with model: [@watch_list, @portfolio, @stock], local: true do |f| %>
+  <div>
+    <%= f.label :watch_list_id %>
+    <%= f.number_field :watch_list_id%>
   <div>
     <%= f.label :name %> <br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Company Name" %>
   </div><br>
   <div>
     <%= f.label :ticker %> <br>
-    <%= f.text_field :ticker %>
+    <%= f.text_field :ticker, placeholder: "AAPL" %>
   </div><br>
   <div>
     <%= f.label :value %> <br>
-    <%= f.number_field :value %>
+    <%= f.number_field :value, step: 0.01, placeholder: "$" %>
   </div><br>
 
-  <%= f.submit button_name %>
+  <%= f.submit %>
 <% end %>
