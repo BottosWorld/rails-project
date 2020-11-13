@@ -1,0 +1,12 @@
+<div class="nested-fields">
+    <div class="field">
+
+        <%= f.text_field :name, placeholder: "enter company name" %>
+
+        <%= f.text_field :ticker, placeholder: "DOW"%>
+
+        <%= f.number_field :value, step: 0.01, placeholder: "$"%>
+    
+    <%= link_to_remove_association "remove stock", f %>
+    </div>
+</div><br>

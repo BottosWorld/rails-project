@@ -4,4 +4,6 @@ class Portfolio < ApplicationRecord
 
     validates_presence_of :investing
     validates_uniqueness_of :user_id
+
+    accepts_nested_attributes_for :stocks
 end

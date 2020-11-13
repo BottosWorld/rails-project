@@ -1,1 +1,20 @@
-<%= @portfolio %>
+<h1>Welcome <%= current_user.email %></h1>
+
+<table class="table table-bordered table-striped table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Watch List Name</th>
+      <th scope="col">Edit</th>
+    </tr>
+
+    <tbody>
+        <% @portfolios.each do |portfolios| %>
+        <tr>
+            <td><%= link_to portfolios.investing, portfolios %></td>
+            <td><%= link_to "Edit Portfolio", edit_portfolio_path(portfolios)%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to "View Stocks", stocks_path, class: 'btn btn-primary' %>

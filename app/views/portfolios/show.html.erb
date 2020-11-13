@@ -1,1 +1,13 @@
-<%= @portfolio %>
+<p>Testing Portfolio Show Page - must show investing amount, user email, and all stock attributes with link to edit routing to edit_portfolio_stock_path</p>
+
+<p> Current User ID: <%= current_user.id %></p><br>
+<p> User ID belonging to Portfolio: <%= @portfolios.user_id %></p><br>
+<p> Portfolio ID: <%= @portfolios.id %></p><br>
+<p> Investing: $<%= @portfolios.investing %></p><br>
+
+<%= @portfolios.stocks.ids %>
+
+<%= @portfolios.stocks.each do |s| %>
+    <li><%= s.id %> <%= s.name %> - <%= s.ticker %>: $<%= s.value%> | <%= link_to "Edit Stock", edit_portfolio_stock_path(@portfolios, s)%></li>
+
+<% end %>
