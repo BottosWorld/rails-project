@@ -9,6 +9,8 @@ class StocksController < ApplicationController
 		else
 			@stocks = Stock.all
 			@elite_stocks = Stock.elite_stocks
+			@stocks_in_watch_list = Stock.stocks_in_watch_list
+			@stocks_in_portfolio = Stock.stocks_in_portfolio
 		end
 	end
 
