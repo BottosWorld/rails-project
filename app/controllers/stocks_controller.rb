@@ -15,7 +15,6 @@ class StocksController < ApplicationController
 	end
 
 	def show
-		# @stock = Stock.find_by_id(params[:id])
 		if params[:watch_list_id]
 			set_watch_list
 			@stocks = @watch_list.stocks

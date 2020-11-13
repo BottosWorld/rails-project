@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 
-Notes from App:
+Notes from App Creation:
 
 Portfolio _form view
     <%# the following creates checkboxes with all stocks as option to select when creating portfolio %>
@@ -58,3 +58,101 @@ Watchlist show view
         <!-- 
         <li><%= button_to "Delete", watch_list_stock_path(s), method: :delete, data: { confirm: "Are you sure?" } %></li>
         -->
+
+Stock Model
+
+    # has_many :portfolios
+    # has_many :users, through: :portfolios
+    # aliasing
+    # has_many :watchlists
+    # has_many :users, through: :watchlists
+
+        #filter through stocks with above scope methods
+
+            # validates_uniqueness_of :ticker, :name
+
+Portfolio Controller
+
+	# before_action :set_portfolio
+
+	# def index
+	# 	@stock = Stock.find_by_id(params[:stock_id])
+	# 	# @portfolio = Portfolio.find_by_id(params[:portfolio_id])
+	# 	@portfolios = @stock.portfolios
+	# 	# @stocks = @portfolio.stock
+	# end
+
+	# def show
+	# 	@stock = Stock.find_by_id(params[:id])
+	# 	@portfolio = Portfolio.find_by_id(params[:id])
+	# end
+
+	# def new
+	# 	@portfolio = Portfolio.new
+	# 	@stocks = Stock.all
+	# end
+
+	# def create
+	#   @portfolio = Portfolio.new(portfolio_params)
+	#   if @portfolio.save
+	# 	  redirect_to portfolio_stocks_path(@portfolio)
+	#   else
+	# 	render :new
+	#   end
+	# end
+
+	# def update
+	  
+	#   @portfolio.update(portfolio_params(:stock_id, :investing))
+	#   redirect_to portfolios_path(@portfolio)
+	# end
+
+	# def edit
+	  
+	# end
+
+    in new, update, and edit actions:
+        # @stocks = Stock.all (used for checkbox option in _form which I commented out)
+
+Stocks Controller
+
+    <!-- @stock = Stock.find_by_id(params[:id]) -->
+
+Watch List new views page
+
+    <!--
+    <%= form_for(@watch_list) do |f| %>
+    <label>List Title:</label><br>
+    <%= f.text_field :list_name %><br>
+
+    <label>Stocks Being Watched..</label><br>
+    <%= f.text_area :stock_id %><br>
+
+    <%= f.submit %>
+    <% end %>
+    -->
+
+Watch List _form page
+
+   <!--
+            <%= fields_for(stocks_url) do |s|%>
+                <%= s.label :name, "Company Name:" %>
+                <%= s.text_field :name %><br>
+                <%= s.label :ticker, "Symbol:" %>
+                <%= s.text_field :ticker %><br>
+                <%= s.label :value, "$" %>
+                <%= s.number_field :value, step: 0.01 %><br>
+            <% end%>
+            
+        <body class='stocks'> 
+        -->
+
+        !--
+    Using this does not properly save the stock and generates fields outside of the form beneath the submit button
+    class: 'btn btn-primary', data: {association_insertion_node: '.stocks', association_insertion_method: :append}
+    -->
+
+Watch List model
+
+    # used :all_blank instead of this - proc { |attributes| attributes['name'].blank? || attributes['ticker'].blank? || attributes['value'].blank? }
+

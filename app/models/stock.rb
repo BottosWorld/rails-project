@@ -1,11 +1,6 @@
 class Stock < ApplicationRecord
     belongs_to :portfolio, optional: true
     belongs_to :watchlist, optional: true
-    # has_many :portfolios
-    # has_many :users, through: :portfolios
-    # aliasing
-    # has_many :watchlists
-    # has_many :users, through: :watchlists
 
     scope :elite_stocks, -> { where("stocks.value BETWEEN 10.00 AND 99.9999") }
     scope :legendary_stocks, -> { where("stocks.value BETWEEN 100.00 AND 9999.9999") }
@@ -16,8 +11,6 @@ class Stock < ApplicationRecord
     scope :stocks_in_watch_list, -> {where("stocks.watch_list_id IS NOT NULL")}
     scope :stocks_in_portfolio, -> {where.not(stocks: {portfolio_id: nil})}
 
-    #filter through stocks with above scope methods
-
     validates_presence_of :ticker, :name, :value
-    # validates_uniqueness_of :ticker, :name
+
 end

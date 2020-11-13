@@ -7,19 +7,7 @@
     <%= f.label :list_name, "Name your watch list!" %>
     <%= f.text_field :list_name, class: @watch_list.errors.any? ? "error-field" : nil %>
         
-        <h4>Add Stocks To Watch</h4>
-            <!--
-            <%= fields_for(stocks_url) do |s|%>
-                <%= s.label :name, "Company Name:" %>
-                <%= s.text_field :name %><br>
-                <%= s.label :ticker, "Symbol:" %>
-                <%= s.text_field :ticker %><br>
-                <%= s.label :value, "$" %>
-                <%= s.number_field :value, step: 0.01 %><br>
-            <% end%>
-            
-        <body class='stocks'> 
-        -->
+    <h4>Add Stocks To Watch</h4>
         <div class="field">
             <%= f.fields_for :stocks do | s | %>
                 <%= render 'stock_fields', f: s %>
@@ -27,10 +15,6 @@
         </div>
 
     <div class="links"><%= link_to_add_association 'Add Stock', f, :stocks, class: 'btn btn-primary' %></div><br>
-    <!--
-    Using this does not properly save the stock and generates fields outside of the form beneath the submit button
-    class: 'btn btn-primary', data: {association_insertion_node: '.stocks', association_insertion_method: :append}
-    -->
 
     <div class="actions"><%= f.submit %></div><br>
 <% end %> 
