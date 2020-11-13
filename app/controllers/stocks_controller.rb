@@ -1,4 +1,5 @@
 class StocksController < ApplicationController
+	#  before_action 
 	def index
 		if params[:watch_list_id]
 			set_watch_list
@@ -69,6 +70,10 @@ class StocksController < ApplicationController
 			@stock.destroy
 		end
 		redirect_to watch_list_stock_path(@stock)
+	end
+
+	def sort
+		#create a link on stocks index page to redirect to a page sorting the stocks by name in alphabetical order to see just the name
 	end
 
 private

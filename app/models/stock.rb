@@ -11,6 +11,8 @@ class Stock < ApplicationRecord
     scope :stocks_in_watch_list, -> {where("stocks.watch_list_id IS NOT NULL")}
     scope :stocks_in_portfolio, -> {where.not(stocks: {portfolio_id: nil})}
 
+    scope :sorted_stocks, -> {where("stocks.names")}
+
     validates_presence_of :ticker, :name, :value
 
 end

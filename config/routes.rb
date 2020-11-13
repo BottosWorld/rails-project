@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   resources :stocks
 
+  get '/sort', to: "stocks#sort", as: 'sort'
+  # get '/patients/:id', to: 'patients#show', as: 'patient'
+
   root to: "static#home"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -24,6 +24,15 @@ Things you may want to cover:
 * ...
 
 
+
+Notes from Project Review:
+
+    comment out in erb to wrap everything in if false statement
+    refactor code to use join tables in this app
+    Yagni - dont code anything you dont need, such as extra models in db
+
+-------------------------
+
 Notes from App Creation:
 
 Portfolio _form view
