@@ -54,3 +54,7 @@ Layout Application view
       </ul>
     -->
 
+Watchlist show view
+        <!-- 
+        <li><%= button_to "Delete", watch_list_stock_path(s), method: :delete, data: { confirm: "Are you sure?" } %></li>
+        -->

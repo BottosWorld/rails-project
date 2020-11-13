@@ -1,4 +1,7 @@
 <%= form_with model: [@watch_list, @portfolio, @stock], local: true do |f| %>
+  <% if @stock.errors.any? %>
+      <h5 class="error"><%= @stock.errors.full_messages.to_sentence %></h5>
+  <% end %>
   <div>
     <%= f.label :watch_list_id %>
     <%= f.number_field :watch_list_id%>

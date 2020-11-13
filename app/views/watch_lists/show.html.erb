@@ -1,9 +1,11 @@
-<% @watch_list.stocks.each do |s| %>
-    <li><%= s.id %> <%= s.name %> - <%= s.ticker %>: $<%= s.value%> | <%= link_to "Edit Stock", edit_watch_list_stock_path(@watch_list, s)%></li>
-    <!-- 
-    <li><%= button_to "Delete", watch_list_stock_path(s), method: :delete, data: { confirm: "Are you sure?" } %></li>
-    -->
-<% end %>
+<h1><%= @watch_list.list_name %></h1><br>
+<h5><%= link_to "Edit Watch List", edit_watch_list_path(@watch_list), class: 'btn btn-secondary'%></h5><br>
 
-<%= link_to "Edit Watch List", edit_watch_list_path(@watch_list)%>
+<div class='container'>
+    <% @watch_list.stocks.each do |s| %>
+        <ol>#<%= s.id %>. <%= s.name %> - <%= s.ticker.upcase %>: $<%= s.value%> | <%= link_to "Edit Stock", edit_watch_list_stock_path(@watch_list, s)%></ol><br>
+    <% end %>
+</div>
+
+
 <%= button_to "Delete Watch List", @watch_list, method: :delete, data: { confirm: "Are you sure?" } %>
