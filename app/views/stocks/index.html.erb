@@ -6,21 +6,21 @@
 <% @stocks.each do |stock| %>
     <div class="container">
         <h5>Created at: <%= stock.created_at.strftime("%b %e, %l:%M %p") %></h5>
-        <h4><%= stock.name %> - <%= stock.ticker %>: $<%= stock.value%><h4><br>
+        <h4><%= stock.name %> - <%= stock.ticker.upcase %>: $<%= stock.value%><h4><br>
     </div>
 <% end %>
 
 <h2> Here are the elite stocks: </h2>
 <% @elite_stocks.each do |s| %>
-    <ol><%= s.id %>. <%= s.name %> - <%= s.ticker %> | $<%= s.value %></ol>
+    <ol><%= s.id %>. <%= s.name %> - <%= s.ticker.upcase %> | $<%= s.value %></ol>
 <% end %>
 
 <h2> Here are all stocks in a watch list: </h2>
 <% @stocks_in_watch_list.each do |s| %>
-    <ol><%= s.id %>. <%= s.name %> - <%= s.ticker %> | $<%= s.value %></ol>
+    <ol><%= s.id %>. <%= s.name %> - <%= s.ticker.upcase %> | $<%= s.value %></ol>
 <% end %>
 
 <h2> Here are all stocks in a portfolio: </h2>
 <% @stocks_in_portfolio.each do |s| %>
-    <ol><%= s.id %>. <%= s.name %> - <%= s.ticker %> | $<%= s.value %></ol>
+    <ol><%= s.id %>. <%= s.name %> - <%= s.ticker.upcase %> | $<%= s.value %></ol>
 <% end %>
