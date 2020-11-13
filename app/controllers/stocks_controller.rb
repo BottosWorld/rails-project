@@ -8,6 +8,7 @@ class StocksController < ApplicationController
 			@stocks = @portfolio.stocks
 		else
 			@stocks = Stock.all
+			@elite_stocks = Stock.elite_stocks
 		end
 	end
 

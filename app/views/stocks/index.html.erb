@@ -1,11 +1,14 @@
-<%= form_tag(stocks_path, method: 'get') do %>
-  <%= text_field_tag :name, nil,  id: "Search", placeholder: "enter company name" %>
-
-  <%= submit_tag "Search"%>
-<% end %>
+<h1>Here are all the stocks in our system:</h1>
 
 <% @stocks.each do |stock| %>
-    <div>
-        <h1><%= stock.name %> - <%= stock.ticker %>: $<%= stock.value%>
+    <div class="container">
+        <h5>Created at: <%= stock.created_at.strftime("%b %e, %l:%M %p") %></h5>
+        <h4><%= stock.name %> - <%= stock.ticker %>: $<%= stock.value%><h4><br>
     </div>
+<% end %>
+
+<h2> Here are the elite stocks </h2>
+<% @elite_stocks.each do |s| %>
+    <ol><%= s.id %>. <%= s.name %> - <%= s.ticker %> | $<%= s.value %></ol>
+
 <% end %>
