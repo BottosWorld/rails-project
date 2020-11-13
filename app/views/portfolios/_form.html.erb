@@ -1,27 +1,19 @@
 <%= form_with model: @portfolio, local: true do |f| %>
+
+  <% if @portfolio.errors.any? %>
+      <h5 class="error"><%= @portfolio.errors.full_messages.to_sentence %></h5>
+  <% end %>
+
   <div class="field">
     <%= f.label :user_id, "#{current_user.email}'s Portfolio" %> <br>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%# add devise helper methods for user to populate user_id field with the current user in the session %>
   </div><br>
   <div class="field">
     <%= f.label :investing %> <br>
     <%= f.number_field :investing, step: 0.01, placeholder: "$" %>
   </div><br>
     <div class="field">
-    <%# stock dropdown menu to select stocks %>
     <%= f.fields_for :stocks do |s|%>
-    <%# the following creates checkboxes with all stocks as option to select when creating portfolio %>
-    <%# but I cannot get them to save in Portfolio, no stocks are saving %>
-    <!--
-      <%= f.label :stock_id %> <br>
-      <%= f.collection_check_boxes(:stock_id, @stocks, :id, :name) do |cb| %>
-        <div class="collection-check-box">
-          <%= cb.label %>
-          <%= cb.check_box %>
-        </div>
-      <% end %>
-    -->
       <%= render 'stock_fields', f: s %>
     <% end %>
   </div><br>

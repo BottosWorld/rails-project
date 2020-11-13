@@ -21,7 +21,7 @@
           Logged in as <%= current_user.email %>
           <% else %>
           Log in or sign up here -->
-          <% end %>
+        <% end %>
       </span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,19 +40,7 @@
         </div>
       </div>
     </nav>
-  <!--
-      <ul>
-        <li><%= link_to "home", root_path %></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "portfolio", portfolios_path %></li>
-            <li><%= link_to "watch lists", watch_lists_path %></li>
-            <li><%= button_to "logout", destroy_user_session_path, method: "delete" %></li>
-          <% else %>
-            <li><%= link_to "login", new_user_session_path %></li>
-            <li><%= link_to "signup", new_user_registration_path %></li>
-          <% end %>
-      </ul>
-  -->
+
 
     <%= yield %>
     

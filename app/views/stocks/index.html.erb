@@ -1,4 +1,7 @@
+<div class="container">
+<%= link_to "Create a new Stock", new_stock_path, class: 'btn btn-primary'%>
 <h1>Here are all the stocks in our system:</h1>
+</div>
 
 <% @stocks.each do |stock| %>
     <div class="container">
