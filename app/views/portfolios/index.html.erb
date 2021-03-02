@@ -3,15 +3,17 @@
 <table class="table table-bordered table-striped table-hover">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Watch List Name</th>
+      <th scope="col">Portfolio Name</th>
       <th scope="col">Edit</th>
+      <th scope="col">Belongs To User #</th>
     </tr>
 
     <tbody>
         <% @portfolios.each do |portfolios| %>
         <tr>
-            <td><%= link_to portfolios.investing, portfolios %></td>
+            <td><%= link_to "$#{portfolios.investing}", portfolios %></td>
             <td><%= link_to "Edit Portfolio", edit_portfolio_path(portfolios)%></td>
+            <td><%= portfolios.user_id%></td>
         </tr>
         <% end %>
     </tbody>
